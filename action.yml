@@ -1,5 +1,9 @@
 name: Elevon Deploy
 description: Deploy applications with Elevon
+author: "Erqon"
+branding:
+  icon: "box"
+  color: "yellow"
 
 inputs:
   version:
