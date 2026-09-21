@@ -17,21 +17,21 @@ if [ "$VERSION" = "latest" ]; then
 	VERSION="$(
 		curl -fsS \
 			https://api.github.com/repos/erqon/elevon/releases/latest |
-			sed -n 's/.*"tag_name": *"elevon-deploy-v\([^"]*\)".*/\1/p'
+			sed -n 's/.*"tag_name": *"elevon-cli-v\([^"]*\)".*/\1/p'
 	)"
 fi
 
 if [[ -z "$VERSION" ]]; then
-	die "Deploy release not found"
+	die "Cli release not found"
 fi
 
-ARCHIVE="elevon-deploy-v${VERSION}-linux-x86_64.tar.gz"
-URL="https://github.com/erqon/elevon/releases/download/elevon-deploy-v${VERSION}/${ARCHIVE}"
-DESTINTATION="/tmp/elevon-deploy.tar.gz"
+ARCHIVE="elevon-cli-v${VERSION}-linux-x86_64.tar.gz"
+URL="https://github.com/erqon/elevon/releases/download/elevon-cli-v${VERSION}/${ARCHIVE}"
+DESTINTATION="/tmp/elevon-cli.tar.gz"
 
 curl -fSL "$URL" -o $DESTINTATION
 tar -xzf $DESTINTATION -C /tmp
-install -m 0755 /tmp/elevon-deploy-v"${VERSION}"-linux-x86_64 \
-	"$RUNNER_TEMP/elevon-deploy"
+install -m 0755 /tmp/elevon-cli-v"${VERSION}"-linux-x86_64 \
+	"$RUNNER_TEMP/elevon-cli"
 
 echo "$RUNNER_TEMP" >>"$GITHUB_PATH"
