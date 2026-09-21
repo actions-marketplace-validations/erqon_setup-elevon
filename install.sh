@@ -33,3 +33,5 @@ curl -fSL "$URL" -o $DESTINTATION
 tar -xzf $DESTINTATION -C /tmp
 install -m 0755 /tmp/elevon-deploy-v"${VERSION}"-linux-x86_64 \
 	"$RUNNER_TEMP/elevon-deploy"
+
+echo "$RUNNER_TEMP" >>"$GITHUB_PATH"

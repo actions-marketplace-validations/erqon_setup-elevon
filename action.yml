@@ -1,5 +1,5 @@
-name: Elevon Deploy
-description: Deploy applications with Elevon
+name: Setup Elevon
+description: Setup Elevon and deploy applications with it
 author: "Erqon"
 branding:
   icon: "box"
@@ -10,19 +10,6 @@ inputs:
     description: Elevon version
     required: false
     default: latest
-  project:
-    description: Project name
-    required: false
-  config:
-    description: Deployment config path
-    required: false
-  command:
-    description: Command to run
-    required: false
-    default: deploy
-  app:
-    description: Application name(s)
-    required: false
 
 runs:
   using: composite
@@ -30,12 +17,3 @@ runs:
     - name: Install Elevon Deploy
       shell: bash
       run: install.sh "${{ inputs.version }}"
-
-    - name: Run Elevon
-      shell: bash
-      env:
-        ELEVON_PROJECT: "${{ inputs.project }}"
-        ELEVON_CONFIG: "${{ inputs.config }}"
-        ELEVON_COMMAND: "${{ inputs.command }}"
-        ELEVON_APP: "${{ inputs.app }}"
-      run: run.sh
