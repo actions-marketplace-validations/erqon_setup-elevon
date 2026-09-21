@@ -1,5 +1,5 @@
 name: Setup Elevon
-description: Setup Elevon and deploy applications with it
+description: Set up the Elevon CLI in your GitHub Actions workflow.
 author: "Erqon"
 branding:
   icon: "box"
@@ -14,6 +14,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Install Elevon Deploy
+    - name: Install Elevon
       shell: bash
-      run: install.sh "${{ inputs.version }}"
+      run: |
+        "${{ github.action_path }}/install.sh" "${{ inputs.version }}"
