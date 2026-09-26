@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Set up Elevon
-        uses: erqon/elevon-deploy@v0.1.0-beta.3
+        uses: erqon/setup-elevon@v0.1.0-beta.3
 
       - name: Deploy application
         run: elevon deploy
@@ -30,7 +30,7 @@ By default, the action installs the latest version of Elevon. To install a speci
 
 ```yaml
 - name: Set up Elevon
-  uses: erqon/elevon-deploy@v0.1.0-beta.3
+  uses: erqon/setup-elevon@v0.1.0-beta.3
   with:
     version: 1.2.3
 ```
