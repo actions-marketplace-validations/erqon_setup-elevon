@@ -15,7 +15,7 @@ esac
 
 if [ "$VERSION" = "latest" ]; then
 	VERSION="$(
-		curl -fsS https://api.github.com/repos/erqon/elevon/releases |
+		curl -fsS https://api.github.com/repos/hesychia-dev/elevon/releases |
 			jq -r '[.[] | select(.tag_name | startswith("elevon-cli-v"))][0].tag_name' |
 			sed 's/elevon-cli-v//'
 	)"
@@ -26,7 +26,7 @@ if [[ -z "$VERSION" ]]; then
 fi
 
 ARCHIVE="elevon-cli-v${VERSION}-linux-x86_64.tar.gz"
-URL="https://github.com/erqon/elevon/releases/download/elevon-cli-v${VERSION}/${ARCHIVE}"
+URL="https://github.com/hesychia-dev/elevon/releases/download/elevon-cli-v${VERSION}/${ARCHIVE}"
 DESTINTATION="/tmp/elevon-cli.tar.gz"
 
 curl -fSL "$URL" -o $DESTINTATION
