@@ -38,7 +38,6 @@ By default, the action installs the latest version of Elevon. To install a speci
 You can then run any Elevon CLI command in subsequent workflow steps:
 
 ```yaml
-- run: elevon build --push
 - run: elevon deploy
 - run: elevon rollback
 ```
