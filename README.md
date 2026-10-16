@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Set up Elevon
-        uses: hesychia-dev/setup-elevon@v0.1.0
+        uses: hesychia-dev/setup-elevon@v0.1.1
 
       - name: Deploy application
         run: elevon deploy
@@ -30,7 +30,7 @@ By default, the action installs the latest version of Elevon. To install a speci
 
 ```yaml
 - name: Set up Elevon
-  uses: hesychia-dev/setup-elevon@v0.1.0
+  uses: hesychia-dev/setup-elevon@v0.1.1
   with:
     version: 1.2.3
 ```
@@ -38,7 +38,6 @@ By default, the action installs the latest version of Elevon. To install a speci
 You can then run any Elevon CLI command in subsequent workflow steps:
 
 ```yaml
-- run: elevon build --push
 - run: elevon deploy
 - run: elevon rollback
 ```
